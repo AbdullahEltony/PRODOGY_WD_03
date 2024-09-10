@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+}
+
+:root {
+  --o-color: #ff6e78;
+  --x-color: #007a85;
+  --drow-color:#bb9446;
+}
+
+body {
+  background-color: #121312;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.title {
+  text-align: center;
+}
+
+.title h1 {
+  color: #cccccc;
+  font-size: 32px;
+}
+.title p {
+  color: #777777;
+}
+small {
+  font-weight: 500;
+}
+
+img {
+  width: 100%;
+}
+
+.board {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, 7rem);
+  grid-template-rows: repeat(3, 7rem);
+  gap: 4px;
+}
+
+.app__body {
+  position: relative;
+}
+.winner-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 192px;
+  height: 160px;
+  object-fit: cover;
+  pointer-events: none;
+  translate: -50% -36%;
+  display: none;
+}
+
+.cell {
+  border: 1px solid #88888899;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: var(--x-color);
+
+  cursor: pointer;
+}
+
+.app__footer {
+  text-align: center;
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+  color: var(--x-color);
+}
+
+.x-color {
+  color: var(--x-color);
+}
+
+.o-color {
+  color: var(--o-color);
+}
+
+.app__footer h3 {
+  font-style: italic;
+  color: inherit;
+}
+#reset {
+  outline: none;
+  border: transparent;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  translate: 0 3px;
+  width: max-content;
+  margin-inline: auto;
+  min-width: 17ch;
+  background-color: #444444;
+  transition: opacity 0.2s;
+  color: #fff;
+  cursor: pointer;
+}
+
+#player {
+  font-size: 25px;
+  margin-right: 5px;
+}
+.playerName {
+  display: flex;
+  align-items: center;
+}
+
+#reset:hover {
+  opacity: 0.8;
+}
+
+.winner-animation {
+  animation: winner 0.5s linear 3;
+}
+.winner-h-line::before {
+  content: "";
+  border-bottom: 2px solid #cccccc;
+  width: 100%;
+  position: absolute;
+}
+
+.winner-v-line::before {
+  border-right: 2px solid #cccccc;
+  content: "";
+  position: absolute;
+  height: 100%;
+}
+.winner-diag_l-line::before {
+  border-right: 2px solid #cccccc;
+  content: "";
+  position: absolute;
+  height: 140%;
+  transform: rotate(-45deg);
+  left: 50% !important;
+  top: -67px;
+}
+.winner-diag_r-line::before {
+  border-right: 2px solid #cccccc;
+  content: "";
+  position: absolute;
+  height: 140%;
+  left: 50%;
+  transform: rotate(45deg);
+  top: -68px;
+}
+
+@keyframes winner {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.2);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+
+/* pyro animation & ANAIMATION */
+.pyro {
+  z-index: 3;
+  inset: 0;
+  width: 100vw;
+  margin: auto;
+  position: fixed;
+  display: none;
+  pointer-events: none;
+}
+.pyro > .before,
+.pyro > .after {
+  position: absolute;
+  top: 73%;
+  left: 75%;
+  height: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff,
+    0 0 #fff, 0 0 #fff, 0 0 #fff;
+  -moz-animation: 1s bang ease-out infinite backwards,
+    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -webkit-animation: 1s bang ease-out infinite backwards,
+    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -o-animation: 1s bang ease-out infinite backwards,
+    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  -ms-animation: 1s bang ease-out infinite backwards,
+    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+  animation: 1s bang ease-out infinite backwards,
+    1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+}
+.pyro > .before {
+    left:25%;
+}
+@keyframes bang {
+  100% {
+    box-shadow: -5px -313.6666666667px #ff4800, -145px -199.6666666667px #6fff00,
+      -198px -337.6666666667px #ff0084, 33px -77.6666666667px #00ff77,
+      30px -312.6666666667px #ff0044, 190px -342.6666666667px #aeff00,
+      -131px -395.6666666667px #ee00ff, 247px 8.3333333333px #003cff,
+      -114px -414.6666666667px #00eeff, 229px 83.3333333333px #4d00ff,
+      -200px -150.6666666667px #8000ff, -103px -89.6666666667px #0084ff,
+      125px 44.3333333333px #77ff00, 69px -91.6666666667px #00ff62,
+      204px -278.6666666667px #6f00ff, 49px -197.6666666667px #ff4400,
+      186px -354.6666666667px #ff00a2, 145px -10.6666666667px #11ff00,
+      -171px -25.6666666667px #00ffa6, 241px 36.3333333333px #dd00ff,
+      72px 39.3333333333px #ff0d00, 70px -297.6666666667px #ff0084,
+      14px 60.3333333333px #ff8800, -171px -92.6666666667px #ffa600,
+      -20px -103.6666666667px #ff007b, -187px -255.6666666667px #0900ff,
+      -196px -191.6666666667px yellow, 199px -88.6666666667px #ffc800,
+      -113px -96.6666666667px #0073ff, -248px -413.6666666667px #0004ff,
+      -133px -143.6666666667px #ff00bb, -213px -112.6666666667px #8800ff,
+      103px 82.3333333333px #00ffe6, 197px -133.6666666667px #00ff33,
+      -191px -134.6666666667px #ff3c00, -169px -337.6666666667px #001eff,
+      10px -186.6666666667px #0004ff, -98px -189.6666666667px #ff1500,
+      -32px 83.3333333333px #ffc400, -92px -348.6666666667px #b700ff,
+      134px -372.6666666667px #ff0900, 247px -293.6666666667px #ff0015,
+      -78px -122.6666666667px #ea00ff, -46px -288.6666666667px #ff00d9,
+      202px -375.6666666667px #ffaa00, 228px -223.6666666667px #ff00aa,
+      -239px -166.6666666667px #ea00ff, 249px -275.6666666667px #0037ff,
+      56px -287.6666666667px #00ffa2, 134px -278.6666666667px blue,
+      225px 21.3333333333px #00ffc8;
+  }
+}

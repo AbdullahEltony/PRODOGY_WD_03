@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>tec-tac-toe</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app__header">
+        <div class="title">
+          <h1>tic-tac-toe</h1>
+          <p>(2 players)</p>
+        </div>
+      </div>
+
+      <div class="app__body">
+        
+        <!-- GAME BOARD -->
+        <div class="board">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="winner-img">
+            <img src="./images/tic-tac-toe-a-winner.webp" />
+          </div>
+        </div>
+      </div>
+
+      <div class="app__footer">
+        <div class="playerName">
+          <span id="player">× </span>
+          <h3 id="playerNo">PLAYER1's <small>turn</small></h3>
+        </div>
+        <button id="reset">Reset</button>
+      </div>
+
+      <!-- PYRO ANIMATION -->
+      <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
